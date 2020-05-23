@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Monster Slayer</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="players">
+            <div class="player">
+                <div class="name">You</div>
+                <div class="life">
+                    <div class="bar" :style="{width: playerLife + '%'}">{{ playerLife }}%</div>
+                </div>
+            </div>
+            <div class="player">
+                <div class="name">Monster</div>
+                <div class="life">
+                    <div class="bar" :style="{width: monsterLife + '%'}">{{ monsterLife }}%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <template v-if="gaming">
+                <button @click="attack()">Attack</button>
+                <button @click="attack(true)">Special attack</button>
+                <button @click="heal()">Heal</button>
+                <button @click="finishGame()">Finish</button>
+            </template>
+            <template v-else>
+                <button @click="gaming = true">Start new game</button>
+            </template>
+        </div>
+        <div v-if="gaming" class="log">
+            <div
+                class="register"
+                v-for="log in history"
+                :class="[log.player]">
+                <b>{{ log.player }}</b> {{ log.type }} <b>{{ getScore(log.type, log.score) }}</b>
+            </div>
+        </div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+</html>
