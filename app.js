@@ -6,7 +6,7 @@ new Vue({
     data: {
         playerLife: 100,
         monsterLife: 100,
-        gaming: true,
+        gaming: false,
         history: [],
         hasWin: false,
     },
