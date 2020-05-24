@@ -2,4 +2,4 @@
 This is a learning Vue project 😎
 
 
-Demo: https://danlgz.github.io/vue-monster-game/
+Demo: <a href="https://danlgz.github.io/vue-monster-game/" target="_blank">https://danlgz.github.io/vue-monster-game/</a>
